@@ -1,0 +1,42 @@
+
+[diff]
+	tool = meld
+
+[alias]
+    lg = log --graph --format='%C(yellow bold)%h%Creset %C(bold blue white)%d%Creset %C(white bold)%s%Creset%n     %C(magenta bold)%cr%Creset   %C(green bold)%an%Creset'
+    export = "!f() { if [ ! -e ${4:-./}$3 ]; then git archive --format=tar --remote=${1} ${2} ${3} | tar -xvC ${4:-./}$(basename ${3}) && echo 'Export completed'; fi; }; f"
+    lf = log --pretty='%C(yellow bold)%h%Creset %C(bold blue white)%d%Creset %n %s %C(green bold)[%cn]' --numstat
+    st = status
+    ci = commit
+    co = checkout
+    df = diff
+    up = pull
+
+[core]
+    editor = vim
+
+
+[push]
+	default = simple
+
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[pull]
+	rebase = true
+[gitreview]
+	remote = origin
+[user]
+	name = Stanisław Karpisiak
+    email = stanislaw.karpisiak@gmail.com
+[init]
+	defaultBranch = master
